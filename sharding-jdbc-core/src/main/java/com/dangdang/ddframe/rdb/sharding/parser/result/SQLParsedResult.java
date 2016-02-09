@@ -28,7 +28,11 @@ import lombok.Getter;
 import lombok.ToString;
 
 /**
- * SQL解析结果.
+ * SQL解析结果.<br/>
+ * add by simon <br/>
+ * 解析结果中放了一堆context...其实主要解析是有阿里巴巴的druid完成，<br/>
+ * 参见 @see com.dangdang.ddframe.rdb.sharding.parser.SQLParserFactory.create(DatabaseType, String, List<Object>, Collection<String>)
+ * 
  * 
  * @author gaohongtao, zhangliang
  */

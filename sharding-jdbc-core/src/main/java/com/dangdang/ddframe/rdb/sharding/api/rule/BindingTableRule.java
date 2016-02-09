@@ -28,7 +28,10 @@ import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 
 /**
- * Binding表规则配置对象.
+ * Binding表规则配置对象.<br/>
+ * add by simon <br/>
+ * 所谓的绑定表是为了在join的语境下，能使得join左右的表被路由到同一个片上。目前是以左边的为依据进行确定路由到哪个片上。<br/>
+ * 这样有个前提：join左右的表的分区规则所使用的列（分区键）是一样的<br/>
  * 
  * @author zhangliang
  */

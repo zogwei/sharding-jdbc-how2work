@@ -26,6 +26,12 @@ import com.google.common.base.Optional;
 
 public final class SQLParsedResultTest {
     
+    /**
+     * add by simon <br/>
+     * 这个断言 是不是有点偷懒，哪天toString修改了就NG了<br/>
+     * @throws IOException
+     * @see [类、类#方法、类#成员]
+     */
     @Test
     public void assertToString() throws IOException {
         SQLParsedResult actual = new SQLParsedResult();

@@ -52,7 +52,8 @@ public final class TableRule {
     
     public TableRule(final String logicTable, final List<String> actualTables, final DataSourceRule dataSourceRule,
                      final DatabaseShardingStrategy databaseShardingStrategy, final TableShardingStrategy tableShardingStrategy) {
-        this(logicTable, new ArrayList<DataNode>(actualTables.size() * dataSourceRule.getDataSourceNames().size()), databaseShardingStrategy, tableShardingStrategy);
+        this(logicTable, new ArrayList<DataNode>(actualTables.size() * dataSourceRule.getDataSourceNames().size()),
+            databaseShardingStrategy, tableShardingStrategy);
         generateDataNodes(actualTables, dataSourceRule);
     }
     
@@ -68,6 +69,14 @@ public final class TableRule {
         this(logicTable, actualTables, dataSourceRule, null, tableShardingStrategy);
     }
     
+    /**
+     * add by simon <br/>
+     * 表名如果有点号字符,则表示是:  数据源名称.表名<br/>
+     * 如果表名中 没有点号字符，则代表这个表在每一个数据源中都存在<br/>
+     * @param actualTables
+     * @param dataSourceRule
+     * @see [类、类#方法、类#成员]
+     */
     private void generateDataNodes(final List<String> actualTables, final DataSourceRule dataSourceRule) {
         for (String actualTable : actualTables) {
             if (actualTable.contains(".")) {

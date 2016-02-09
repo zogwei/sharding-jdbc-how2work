@@ -21,7 +21,10 @@ import com.dangdang.ddframe.rdb.sharding.api.DatabaseType;
 import com.dangdang.ddframe.rdb.sharding.parser.result.router.SQLBuilder;
 
 /**
- * SQL解析基础访问器接口.
+ * SQL解析基础访问器接口.<br/>
+ * add by simon<br/>
+ * 这个接口所设计的方法体现不出来Visitor的感觉，并且从目前实现这个接口的子类来看，<br/>
+ * 子类的Visitor能力(或者说方法约定)是从druid的MySqlOutputVisitor过来的<br/>
  * 
  * @author zhangliang
  */

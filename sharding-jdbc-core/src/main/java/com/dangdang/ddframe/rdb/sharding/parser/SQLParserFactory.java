@@ -60,6 +60,11 @@ public final class SQLParserFactory {
      */
     public static SQLParseEngine create(final DatabaseType databaseType, final String sql, final List<Object> parameters, final Collection<String> shardingColumns) throws SQLParserException {
         log.debug("Logic SQL: {}", sql);
+        
+        /**
+         * add by simon<br/>
+         * 依赖阿里巴巴的druid解析sql后 做后置处理<br/>
+         */
         SQLStatement sqlStatement = getSQLStatementParser(databaseType, sql).parseStatement();
         log.trace("Get {} SQL Statement", sqlStatement.getClass().getName());
         return new SQLParseEngine(sqlStatement, parameters, getSQLVisitor(databaseType, sqlStatement), shardingColumns);

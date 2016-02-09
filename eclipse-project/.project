@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<projectDescription>
+	<name>sharding-jdbc-core</name>
+	<comment></comment>
+	<projects>
+	</projects>
+	<buildSpec>
+		<buildCommand>
+			<name>org.eclipse.jdt.core.javabuilder</name>
+			<arguments>
+			</arguments>
+		</buildCommand>
+	</buildSpec>
+	<natures>
+		<nature>org.eclipse.jdt.core.javanature</nature>
+	</natures>
+	<linkedResources>
+		<link>
+			<name>how2work-doc</name>
+			<type>2</type>
+			<location>F:/080.self/05.code/04.java/sharding-jdbc-how2work/how2work-doc</location>
+		</link>
+		<link>
+			<name>java</name>
+			<type>2</type>
+			<location>F:/080.self/05.code/04.java/sharding-jdbc-how2work/sharding-jdbc-core/src/main/java</location>
+		</link>
+		<link>
+			<name>test_java</name>
+			<type>2</type>
+			<location>F:/080.self/05.code/04.java/sharding-jdbc-how2work/sharding-jdbc-core/src/test/java</location>
+		</link>
+		<link>
+			<name>test_resources</name>
+			<type>2</type>
+			<location>F:/080.self/05.code/04.java/sharding-jdbc-how2work/sharding-jdbc-core/src/test/resources</location>
+		</link>
+	</linkedResources>
+</projectDescription>

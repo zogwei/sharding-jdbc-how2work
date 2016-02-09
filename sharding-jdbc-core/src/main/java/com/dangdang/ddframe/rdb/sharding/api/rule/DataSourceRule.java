@@ -25,7 +25,9 @@ import javax.sql.DataSource;
 import com.google.common.base.Preconditions;
 
 /**
- * 数据源配置对象.
+ * 数据源配置对象.<br/>
+ * add by simon<br/>
+ * 这个类命名带上rule,貌似有一定的迷惑性,本质上就是存放了datasource的名字机器对象的kv<br/>
  * 
  * @author zhangliang
  */
