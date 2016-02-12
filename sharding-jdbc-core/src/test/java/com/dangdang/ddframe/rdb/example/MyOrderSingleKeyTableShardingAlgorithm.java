@@ -28,7 +28,9 @@ public class MyOrderSingleKeyTableShardingAlgorithm implements SingleKeyTableSha
     public String doEqualSharding(Collection<String> availableTargetNames, ShardingValue<Integer> shardingValue)
     {
         System.out.println(availableTargetNames);
-        return null;
+        
+        // 仅仅为了测试验证 构造都从t_order_0查询的分片规则
+        return "t_order_0";
     }
 
     @Override

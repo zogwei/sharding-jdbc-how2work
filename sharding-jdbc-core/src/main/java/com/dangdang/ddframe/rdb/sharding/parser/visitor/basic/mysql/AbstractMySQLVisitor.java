@@ -73,6 +73,11 @@ public abstract class AbstractMySQLVisitor extends MySqlOutputVisitor implements
     /**
      * 父类使用<tt>@@</tt>代替<tt>?</tt>,此处直接输出参数占位符<tt>?</tt>
      * 
+     * add by Simon on 2016/02/12 <br/>
+     * 父类不仅用@@ 替换?,同时用实际参数值替换了?占位符<br/>
+     * 交由com.dangdang.ddframe.rdb.sharding.jdbc.ShardingPreparedStatement.setParameters<br/>
+     * 填充参数<br/>
+     * 
      * @param x 变量表达式
      * @return false 终止遍历AST
      */
@@ -93,6 +98,11 @@ public abstract class AbstractMySQLVisitor extends MySqlOutputVisitor implements
             print(' ');
             print(table.getAlias().get());
         }
+        
+        /**
+         * add by Simon on 2016/02/12
+         * 强制索引 FORCE INDEX、忽略索引等
+         */
         for (SQLHint each : x.getHints()) {
             print(' ');
             each.accept(this);

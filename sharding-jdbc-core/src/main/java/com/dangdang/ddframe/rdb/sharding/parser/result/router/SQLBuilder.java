@@ -86,6 +86,11 @@ public class SQLBuilder implements Appendable {
      */
     public SQLBuilder buildSQL(final String originToken, final String newToken) {
         if (tokenMap.containsKey(originToken)) {
+            
+            /**
+             * add by simon<br/>
+             * 真正偷梁换柱的地方<br/>
+             */
             tokenMap.get(originToken).value = newToken;
         }
         return this;
