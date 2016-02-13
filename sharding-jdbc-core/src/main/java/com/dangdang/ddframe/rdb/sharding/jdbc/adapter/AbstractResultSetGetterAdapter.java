@@ -56,6 +56,14 @@ public abstract class AbstractResultSetGetterAdapter extends AbstractUnsupported
         return currentResultSet.getBoolean(columnIndex);
     }
     
+    /**
+     * add by simon<br/>
+     * currentResultSet 可能是一个proxy<br/>
+     * 这种方式不错，在真正使用的时候再进行计算<br/>
+     * @param columnLabel
+     * @return
+     * @throws SQLException
+     */
     @Override
     public final boolean getBoolean(final String columnLabel) throws SQLException {
         return currentResultSet.getBoolean(columnLabel);
