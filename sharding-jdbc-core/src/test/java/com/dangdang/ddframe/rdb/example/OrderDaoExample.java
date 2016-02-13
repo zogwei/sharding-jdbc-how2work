@@ -89,15 +89,8 @@ public class OrderDaoExample
     @Test
     public void testShardingQueryWhereEquals001()
     {
-        DataSource db0DataSource = createDataSource("db0");
-        Map<String, DataSource> dataSourceMap = Maps.newHashMapWithExpectedSize(1);
-        dataSourceMap.put("db0", db0DataSource);
-        DataSourceRule dataSourceRule = new DataSourceRule(dataSourceMap);
-        TableRule tableRule = new TableRule("t_order", Arrays.asList("t_order_0","t_order_1"), dataSourceRule);
-        MyOrderSingleKeyTableShardingAlgorithm algorithm = new MyOrderSingleKeyTableShardingAlgorithm();
-        TableShardingStrategy tableShardingStrategy = new TableShardingStrategy("order_id", algorithm);
-        ShardingRule shardingRule = new ShardingRule(dataSourceRule, Arrays.asList(tableRule), tableShardingStrategy);
-        ShardingDataSource shardingDataSource = new ShardingDataSource(shardingRule);
+        String logicTable = "t_order";
+        ShardingDataSource shardingDataSource = createShardingDataSource(logicTable);
         Connection connection = null;
         try
         {
@@ -140,15 +133,8 @@ public class OrderDaoExample
     @Test
     public void testShardingQueryWhereEquals002()
     {
-        DataSource db0DataSource = createDataSource("db0");
-        Map<String, DataSource> dataSourceMap = Maps.newHashMapWithExpectedSize(1);
-        dataSourceMap.put("db0", db0DataSource);
-        DataSourceRule dataSourceRule = new DataSourceRule(dataSourceMap);
-        TableRule tableRule = new TableRule("t_order", Arrays.asList("t_order_0","t_order_1"), dataSourceRule);
-        MyOrderSingleKeyTableShardingAlgorithm algorithm = new MyOrderSingleKeyTableShardingAlgorithm();
-        TableShardingStrategy tableShardingStrategy = new TableShardingStrategy("order_id", algorithm);
-        ShardingRule shardingRule = new ShardingRule(dataSourceRule, Arrays.asList(tableRule), tableShardingStrategy);
-        ShardingDataSource shardingDataSource = new ShardingDataSource(shardingRule);
+        String logicTable = "t_order";
+        ShardingDataSource shardingDataSource = createShardingDataSource(logicTable);
         Connection connection = null;
         try
         {
@@ -194,15 +180,8 @@ public class OrderDaoExample
     @Test
     public void testShardingQueryWhereEquals003()
     {
-        DataSource db0DataSource = createDataSource("db0");
-        Map<String, DataSource> dataSourceMap = Maps.newHashMapWithExpectedSize(1);
-        dataSourceMap.put("db0", db0DataSource);
-        DataSourceRule dataSourceRule = new DataSourceRule(dataSourceMap);
-        TableRule tableRule = new TableRule("T_ORDER", Arrays.asList("t_order_0","t_order_1"), dataSourceRule);
-        MyOrderSingleKeyTableShardingAlgorithm algorithm = new MyOrderSingleKeyTableShardingAlgorithm();
-        TableShardingStrategy tableShardingStrategy = new TableShardingStrategy("order_id", algorithm);
-        ShardingRule shardingRule = new ShardingRule(dataSourceRule, Arrays.asList(tableRule), tableShardingStrategy);
-        ShardingDataSource shardingDataSource = new ShardingDataSource(shardingRule);
+        String logicTable = "T_ORDER";
+        ShardingDataSource shardingDataSource = createShardingDataSource(logicTable);
         Connection connection = null;
         try
         {
@@ -245,15 +224,8 @@ public class OrderDaoExample
     @Test
     public void testShardingQueryAvg001()
     {
-        DataSource db0DataSource = createDataSource("db0");
-        Map<String, DataSource> dataSourceMap = Maps.newHashMapWithExpectedSize(1);
-        dataSourceMap.put("db0", db0DataSource);
-        DataSourceRule dataSourceRule = new DataSourceRule(dataSourceMap);
-        TableRule tableRule = new TableRule("t_order", Arrays.asList("t_order_0","t_order_1"), dataSourceRule);
-        MyOrderSingleKeyTableShardingAlgorithm algorithm = new MyOrderSingleKeyTableShardingAlgorithm();
-        TableShardingStrategy tableShardingStrategy = new TableShardingStrategy("order_id", algorithm);
-        ShardingRule shardingRule = new ShardingRule(dataSourceRule, Arrays.asList(tableRule), tableShardingStrategy);
-        ShardingDataSource shardingDataSource = new ShardingDataSource(shardingRule);
+        String logicTable = "t_order";
+        ShardingDataSource shardingDataSource = createShardingDataSource(logicTable);
         Connection connection = null;
         try
         {
@@ -299,15 +271,8 @@ public class OrderDaoExample
     @Test
     public void testShardingQueryByOrder001()
     {
-        DataSource db0DataSource = createDataSource("db0");
-        Map<String, DataSource> dataSourceMap = Maps.newHashMapWithExpectedSize(1);
-        dataSourceMap.put("db0", db0DataSource);
-        DataSourceRule dataSourceRule = new DataSourceRule(dataSourceMap);
-        TableRule tableRule = new TableRule("t_order", Arrays.asList("t_order_0","t_order_1"), dataSourceRule);
-        MyOrderSingleKeyTableShardingAlgorithm algorithm = new MyOrderSingleKeyTableShardingAlgorithm();
-        TableShardingStrategy tableShardingStrategy = new TableShardingStrategy("order_id", algorithm);
-        ShardingRule shardingRule = new ShardingRule(dataSourceRule, Arrays.asList(tableRule), tableShardingStrategy);
-        ShardingDataSource shardingDataSource = new ShardingDataSource(shardingRule);
+        String logicTable = "t_order";
+        ShardingDataSource shardingDataSource = createShardingDataSource(logicTable);
         Connection connection = null;
         try
         {
@@ -350,15 +315,8 @@ public class OrderDaoExample
     @Test
     public void testShardingQueryLimit001()
     {
-        DataSource db0DataSource = createDataSource("db0");
-        Map<String, DataSource> dataSourceMap = Maps.newHashMapWithExpectedSize(1);
-        dataSourceMap.put("db0", db0DataSource);
-        DataSourceRule dataSourceRule = new DataSourceRule(dataSourceMap);
-        TableRule tableRule = new TableRule("t_order", Arrays.asList("t_order_0","t_order_1"), dataSourceRule);
-        MyOrderSingleKeyTableShardingAlgorithm algorithm = new MyOrderSingleKeyTableShardingAlgorithm();
-        TableShardingStrategy tableShardingStrategy = new TableShardingStrategy("order_id", algorithm);
-        ShardingRule shardingRule = new ShardingRule(dataSourceRule, Arrays.asList(tableRule), tableShardingStrategy);
-        ShardingDataSource shardingDataSource = new ShardingDataSource(shardingRule);
+        String logicTable = "t_order";
+        ShardingDataSource shardingDataSource = createShardingDataSource(logicTable);
         Connection connection = null;
         try
         {
@@ -390,6 +348,20 @@ public class OrderDaoExample
                 }
             }
         }
+    }
+
+    private ShardingDataSource createShardingDataSource(String logicTable)
+    {
+        DataSource db0DataSource = createDataSource("db0");
+        Map<String, DataSource> dataSourceMap = Maps.newHashMapWithExpectedSize(1);
+        dataSourceMap.put("db0", db0DataSource);
+        DataSourceRule dataSourceRule = new DataSourceRule(dataSourceMap);
+        TableRule tableRule = new TableRule(logicTable, Arrays.asList("t_order_0","t_order_1"), dataSourceRule);
+        MyOrderSingleKeyTableShardingAlgorithm algorithm = new MyOrderSingleKeyTableShardingAlgorithm();
+        TableShardingStrategy tableShardingStrategy = new TableShardingStrategy("order_id", algorithm);
+        ShardingRule shardingRule = new ShardingRule(dataSourceRule, Arrays.asList(tableRule), tableShardingStrategy);
+        ShardingDataSource shardingDataSource = new ShardingDataSource(shardingRule);
+        return shardingDataSource;
     }
     
     private static DataSource createDataSource(final String dataSourceName)
